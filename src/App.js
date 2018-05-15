@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Header, Grid, Container} from 'semantic-ui-react'
+import {Header, Grid, Container, Transition, Icon, Image} from 'semantic-ui-react'
 import {UserView} from './containers/UserView'
 import './App.css';
 
@@ -10,7 +10,9 @@ class App extends Component {
     this.state = {
       users: [{id: 1, name: "Laura", image: 'https://react.semantic-ui.com/assets/images/avatar/small/veronika.jpg'}, {id: 2, name: "Rob", image: 'https://react.semantic-ui.com/assets/images/avatar/small/matthew.png'}],
       messageId: 0,
-      log: []
+      log: [],
+      user1Typing: false,
+      user2Typing: false,
     };
   }
 
@@ -20,6 +22,11 @@ class App extends Component {
     let newMessage = {id: this.state.messageId + 1, text: message, user: user, time: time}
     newLog.push(newMessage)
     this.setState({log: newLog, messageId: this.state.messageId + 1}, console.log("new log", this.state.log))
+  }
+  
+  indicateTyping = (user) => {
+    
+    this.setState({})
   }
   
   
@@ -32,10 +39,10 @@ class App extends Component {
       <Container>
       <Grid columns='equal' divided relaxed padded centered stretched>
         <Grid.Column>
-          <UserView user={this.state.users[0]} otherUser={this.state.users[1]} log={this.state.log} postMessage={this.postMessage}/>
+          <UserView user={this.state.users[0]} otherUser={this.state.users[1]} log={this.state.log} postMessage={this.postMessage} otherTyping={this.state.user2Typing}/>
         </Grid.Column>
         <Grid.Column>
-          <UserView user={this.state.users[1]} otherUser={this.state.users[0]} log={this.state.log} postMessage={this.postMessage}/>
+          <UserView user={this.state.users[1]} otherUser={this.state.users[0]} log={this.state.log} postMessage={this.postMessage} otherTyping={this.state.user1Typing}/>
         </Grid.Column>
       </Grid>
       </Container>

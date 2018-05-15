@@ -11,7 +11,7 @@ export const UserView = (props) => {
           <Header>
             {props.user.name}
           </Header>
-          <ChatWindow log={props.log} user={props.user} otherUser={props.otherUser} />
+          <ChatWindow otherTyping={props.otherTyping} log={props.log} user={props.user} otherUser={props.otherUser} />
           <InputForm user={props.user} otherUser={props.otherUser} postMessage={props.postMessage}/>
       </React.Fragment>
     );

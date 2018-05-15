@@ -1,0 +1,27 @@
+// Navbar module
+.navbar {
+  background-color: map-get($colors, lightgray);
+  padding: 8px 60px;
+  overflow: auto;
+
+  &__item {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    float: left;
+    padding-right: 20px;
+    padding-top: 4px;
+    text-decoration: none;
+    color: map-get($colors, darkgray)
+  }
+
+  &__item--active {
+    font-size: 16px;
+    font-weight: 600;
+    float: left;
+    padding-right: 20px;
+    padding-top: 4px;
+    font-weight: 700;
+    color: map-get($colors, ui-dark)
+  }
+}
