@@ -5,10 +5,10 @@ export const Message = (props) => {
 
     return (
       <List.Item>
-        <Image avatar  />
+        <Image avatar src={props.message.user.image}/>
         <List.Content>
-          <List.Header as='a'>{props.message.user.name}</List.Header>
-          <List.Description>{props.message.time}</List.Description>
+          <List.Header>{props.message.user.name ? "" : "user"}</List.Header>
+          <List.Description>{props.message.time ? "" : "time"}</List.Description>
           <List.Description>{props.message.text}</List.Description>
         </List.Content>
       </List.Item>

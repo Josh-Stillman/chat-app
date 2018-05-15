@@ -19,15 +19,15 @@ class InputForm extends Component {
   }
 
   handleSubmit = () => {
-    this.props.postMessage(this.state.text)
-      this.setState({text: ''})
+    this.props.postMessage(this.state.text, this.props.user);
+    this.setState({text: ''}, console.log("reset the input", this.state));
   }
 
 
   render() {
     return (
       <Form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <Input focus placeholder={`Message ${this.props.otherUser}...`} />
+        <Input focus size="large" value={this.state.text} placeholder={`Message ${this.props.otherUser.name}...`} />
       </Form>
     );
   }
