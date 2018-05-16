@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Header, Form, Input, List, Icon, Transition, Image} from 'semantic-ui-react'
 
 
-class InputForm extends Component {
+class TypingIndicator extends Component {
 
   constructor(){
     super();
@@ -26,4 +26,4 @@ class InputForm extends Component {
   }
 }
 
-export default InputForm;
+export default TypingIndicator;

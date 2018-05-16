@@ -15,12 +15,13 @@ class InputForm extends Component {
   handleChange = (e) => {
     e.persist()
     this.setState({text: e.target.value})
-    //logic here to show typing in other chat window.
+    this.props.indicateTyping(this.props.user)
   }
 
   handleSubmit = () => {
     this.props.postMessage(this.state.text, this.props.user, moment());
-    this.setState({text: ''}, console.log("reset the input", this.state));
+    this.setState({text: ''});
+
   }
 
 
