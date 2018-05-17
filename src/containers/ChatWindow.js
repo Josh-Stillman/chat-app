@@ -18,10 +18,6 @@ class ChatWindow extends Component {
     //this.scrollRef = React.createRef();
   }
 
-  componentWillUpdate(){
-    console.log("updated with ref", this.scrollRef)
-
-  }
 
   handleScroll = (scrollTop) => {
     scrollTop.persist()

@@ -12,7 +12,7 @@ export const Message = (props) => {
       <List.Item>
         <Grid columns={2}>
           <Grid.Row>
-        <Grid.Column width={3}>
+        <Grid.Column width={2}>
         <Image avatar src={props.message.user.image}/>
         </Grid.Column>
         <Grid.Column>

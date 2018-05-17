@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Header, Grid, Container, Transition, Icon, Image} from 'semantic-ui-react'
+import {Header, Grid, Container, Transition, Icon, Image, Segment} from 'semantic-ui-react'
 import {UserView} from './containers/UserView'
 import './App.css';
 
@@ -22,6 +22,7 @@ class App extends Component {
   postMessage = (message, user, time) => {
     let newLog = this.state.log;
     let newMessage = {id: this.state.messageId + 1, text: message, user: user, time: time}
+    //let newMessage = {id: this.state.messageId + 1, text: message, userId: userId, time: time}
     newLog.push(newMessage)
     this.setState({log: newLog, messageId: this.state.messageId + 1, [`user${user.id}Typing`]: false}, console.log("new log", this.state.log))
     
@@ -48,9 +49,11 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-      <Header>
+      <Segment inverted basic>
+      <Header as="h3">
         Chat App
       </Header>
+      </Segment>
       <Container>
       <Grid columns='equal' divided relaxed padded centered stretched>
         <Grid.Column>
