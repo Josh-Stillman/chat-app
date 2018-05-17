@@ -12,6 +12,7 @@ class TypingIndicator extends Component {
     };
   }
 
+
   onComplete = () => {
       this.setState({timer: setTimeout(() => { this.setState({visible: !this.state.visible})}, 100)});
   }

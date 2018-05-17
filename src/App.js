@@ -19,15 +19,15 @@ class App extends Component {
   }
 
   
-  postMessage = (message, user, time) => {
+  postMessage = (message, userId, time) => {
     let newLog = this.state.log;
-    let newMessage = {id: this.state.messageId + 1, text: message, user: user, time: time}
-    //let newMessage = {id: this.state.messageId + 1, text: message, userId: userId, time: time}
+    let newMessage = {id: this.state.messageId + 1, text: message, userId: userId, time: time}
+
     newLog.push(newMessage)
-    this.setState({log: newLog, messageId: this.state.messageId + 1, [`user${user.id}Typing`]: false}, console.log("new log", this.state.log))
+    this.setState({log: newLog, messageId: this.state.messageId + 1, [`user${userId}Typing`]: false}, console.log("new log", this.state.log))
     
-    if(this.state[`user${user.id}TypingTimeout`]){
-      clearTimeout(this.state[`user${user.id}TypingTimeout`])
+    if(this.state[`user${userId}TypingTimeout`]){
+      clearTimeout(this.state[`user${userId}TypingTimeout`])
     }
   }
   
@@ -40,27 +40,23 @@ class App extends Component {
     }
     
     this.setState({[`user${user.id}TypingTimeout`]: setTimeout(() => { if (this.state[`user${user.id}Typing`]) {this.setState({[`user${user.id}Typing`]: false})}}, 1000)})
-    
-    //possibly have to set a timeoutgoing key in state.  
   }
-  
-  
   
   render() {
     return (
       <React.Fragment>
       <Segment inverted basic>
-      <Header as="h3">
-        Chat App
-      </Header>
+        <Header as="h3">
+          Chat App
+        </Header>
       </Segment>
       <Container>
       <Grid columns='equal' divided relaxed padded centered stretched>
         <Grid.Column>
-          <UserView user={this.state.users[0]} otherUser={this.state.users[1]} log={this.state.log} postMessage={this.postMessage} otherTyping={this.state.user2Typing} indicateTyping={this.indicateTyping}/>
+          <UserView user={this.state.users[0]} otherUser={this.state.users[1]} users={this.state.users} log={this.state.log} postMessage={this.postMessage} otherTyping={this.state.user2Typing} indicateTyping={this.indicateTyping}/>
         </Grid.Column>
         <Grid.Column>
-          <UserView user={this.state.users[1]} otherUser={this.state.users[0]} log={this.state.log} postMessage={this.postMessage} otherTyping={this.state.user1Typing} indicateTyping={this.indicateTyping}/>
+          <UserView user={this.state.users[1]} otherUser={this.state.users[0]} log={this.state.log} users={this.state.users} postMessage={this.postMessage} otherTyping={this.state.user1Typing} indicateTyping={this.indicateTyping}/>
         </Grid.Column>
       </Grid>
       </Container>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import {Header, Form, Input} from 'semantic-ui-react'
 let moment = require('moment');
 
@@ -13,6 +14,13 @@ class InputForm extends Component {
     };
   }
 
+  static propTypes = {
+    postMessage: PropTypes.func,
+    indicateTyping: PropTypes.func,
+    user: PropTypes.object,
+    otherUser: PropTypes.object,
+  };
+
   handleChange = (e) => {
     e.persist()
     this.setState({text: e.target.value})
@@ -20,9 +28,8 @@ class InputForm extends Component {
   }
 
   handleSubmit = () => {
-    if(this.state.text != ''){this.props.postMessage(this.state.text, this.props.user, moment());}
+    if(this.state.text != ''){this.props.postMessage(this.state.text, this.props.user.id, moment());}
     this.setState({text: ''});
-
   }
 
 
