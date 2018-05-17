@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Header, List, Image, Grid} from 'semantic-ui-react'
 import {moment} from 'moment'
+import '../stylesheets/Message.css'
 
 
 export const Message = (props) => {
@@ -16,12 +17,13 @@ export const Message = (props) => {
               <Image avatar src={userImage}/>
             </Grid.Column>
             <Grid.Column>
-              <span><Header as='h4' style={{display: "inline"}}>{userName} </Header> <Header as='h5' disabled style={{display: "inline"}}>
+              <span><Header as='h4' className='message-header' >{userName} </Header> <Header as='h5' disabled className='message-header'>
                <i>{props.message.time ? props.message.time.format("MMMM Do, h:mm A") : ""} </i></Header></span>
-              <p style={{wordWrap: "break-word", width: "400px"}} >{props.message.text}</p>
+              <p className="wrapping-text" >{props.message.text}</p>
             </Grid.Column>
           </Grid.Row>
         </Grid>
       </List.Item>
     );
 }
+//style={{display: "inline"}}

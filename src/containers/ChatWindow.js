@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {Header, List, Transition, Loader, Icon, Segment} from 'semantic-ui-react'
 import {Message} from '../components/Message'
 import TypingIndicator from '../components/TypingIndicator'
+import '../stylesheets/ChatWindow.css';
 
 class ChatWindow extends Component {
 
@@ -43,8 +44,8 @@ class ChatWindow extends Component {
   render() {
     return (
       <React.Fragment>
-        <Segment id="chatWindow" attached='bottom' as="div" style={{height: "600px", overflowY: "auto"}}>
-        <List attached="bottom" style={{position: "absolute", bottom: "0px", maxHeight: "575px", minHeight: "0", overflowY: "none", width: "90%"}} divided relaxed size="large">
+        <Segment id="chatWindow" attached='bottom' as="div" className="outer-window" >
+        <List attached="bottom" className="inner-window" divided relaxed size="large">
           {this.props.log.map((item) => <Message message={item} users={this.props.users} />)}
           {this.props.otherTyping ? <TypingIndicator /> : ""}
           <List.Item>
@@ -58,3 +59,5 @@ class ChatWindow extends Component {
 }
 
 export default ChatWindow;
+
+//style={{height: "600px", overflowY: "auto"}}

@@ -1,0 +1,8 @@
+.message-header {
+  display: inline !important;
+}
+
+.wrapping-text {
+  word-wrap: break-word;
+  width: 400px;
+}

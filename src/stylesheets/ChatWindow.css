@@ -1,0 +1,12 @@
+.outer-window {
+  height: 600px;
+  overflow-y: auto;
+}
+
+.inner-window {
+  position: absolute;
+  bottom: 0px;
+  max-height: 575px;
+  min-height: 0;
+  width: 90%;
+}
