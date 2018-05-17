@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Header, List, Image, Grid} from 'semantic-ui-react'
-import {moment} from 'moment'
 import '../stylesheets/Message.css'
 
 
@@ -26,4 +25,3 @@ export const Message = (props) => {
       </List.Item>
     );
 }
-//style={{display: "inline"}}

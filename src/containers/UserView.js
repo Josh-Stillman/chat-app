@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types'
-import {Header, Container, Image} from 'semantic-ui-react'
+import {Header, Image} from 'semantic-ui-react'
 import ChatWindow from './ChatWindow'
 import InputForm from '../components/InputForm'
 
 
 
 export const UserView = (props) => {
-
-
     return (
       <React.Fragment>
           <Header>
@@ -19,6 +17,7 @@ export const UserView = (props) => {
       </React.Fragment>
     );
 }
+
 const propTypes = {
   otherTyping: PropTypes.bool,
   log: PropTypes.array,
