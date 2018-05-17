@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Header, Grid, Container, Transition, Icon, Image, Segment} from 'semantic-ui-react'
 import {UserView} from './containers/UserView'
 import './stylesheets/App.css';
+import {server} from './services/MockServer'
 
 class App extends Component {
   
@@ -18,13 +19,20 @@ class App extends Component {
     };
   }
 
-  
+  //The postMessage makes use of a mock-server for now.
+  //It can be refactored with a fetch request to use with a real server.
   postMessage = (message, userId, time) => {
     let newLog = this.state.log;
-    let newMessage = {id: this.state.messageId + 1, text: message, userId: userId, time: time}
-
-    newLog.push(newMessage)
-    this.setState({log: newLog, messageId: this.state.messageId + 1, [`user${userId}Typing`]: false}, console.log("new log", this.state.log))
+    
+    //let newMessage = {id: this.state.messageId + 1, text: message, userId: userId, time: time}
+    let newMessage = {text: message, userId: userId, time: time}
+    
+    let response = server.post(newMessage)
+    newLog.push(response)
+    
+    //newLog.push(newMessage)
+    
+    this.setState({log: newLog, messageId: this.state.messageId + 1, [`user${userId}Typing`]: false})
     
     if(this.state[`user${userId}TypingTimeout`]){
       clearTimeout(this.state[`user${userId}TypingTimeout`])
