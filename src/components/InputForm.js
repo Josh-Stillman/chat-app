@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Header, Form, Input} from 'semantic-ui-react'
 let moment = require('moment');
 
+
 class InputForm extends Component {
 
   constructor(){
@@ -19,7 +20,7 @@ class InputForm extends Component {
   }
 
   handleSubmit = () => {
-    this.props.postMessage(this.state.text, this.props.user, moment());
+    if(this.state.text != ''){this.props.postMessage(this.state.text, this.props.user, moment());}
     this.setState({text: ''});
 
   }

@@ -8,11 +8,16 @@ class TypingIndicator extends Component {
     super();
     this.state = {
       visible: true,
+      timer: null
     };
   }
 
   onComplete = () => {
-      setTimeout(() => { this.setState({visible: !this.state.visible})}, 100);
+      this.setState({timer: setTimeout(() => { this.setState({visible: !this.state.visible})}, 100)});
+  }
+
+  componentWillUnmount(){
+      clearTimeout(this.state.timer)
   }
 
   render() {
