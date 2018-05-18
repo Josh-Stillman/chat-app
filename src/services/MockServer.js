@@ -1,4 +1,4 @@
-//To facilitate eventually connecting the frontend to a server, the postMessage function sends the new message to the mock server object below.  Post requests to the mock server can be replaced wih fetch requests to a server.
+//To facilitate eventually connecting the frontend to a server, the postMessage function sends the new message to the mock server object below.  Post requests to the mock server can then later be replaced wih fetch requests to a server.
 
 class MockServer {
   constructor(){
