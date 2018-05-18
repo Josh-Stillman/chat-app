@@ -2,8 +2,8 @@
 
 class MockServer {
   constructor(){
-    this.log = [],
-    this.messageId = 1;
+    this.log = []
+    this.messageId = 1
   }
 
   post(newMessage){
@@ -18,4 +18,4 @@ class MockServer {
   }
 }
 
-export const server = new MockServer
+export const server = new MockServer()

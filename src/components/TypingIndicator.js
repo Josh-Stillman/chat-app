@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Header, Form, Input, List, Icon, Transition, Image} from 'semantic-ui-react'
+import {List, Icon, Transition} from 'semantic-ui-react'
 
 
 class TypingIndicator extends Component {

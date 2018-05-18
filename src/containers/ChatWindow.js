@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import {Header, List, Transition, Loader, Icon, Segment} from 'semantic-ui-react'
+import {List, Segment} from 'semantic-ui-react'
 import {Message} from '../components/Message'
 import TypingIndicator from '../components/TypingIndicator'
 import '../stylesheets/ChatWindow.css';
