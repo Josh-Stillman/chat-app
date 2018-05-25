@@ -5,7 +5,7 @@ import './stylesheets/App.css';
 import {server} from './services/MockServer'
 
 class App extends Component {
-  
+
   constructor(){
     super();
     this.state = {
@@ -21,21 +21,21 @@ class App extends Component {
 
   //The postMessage makes use of a mock-server for now.
   //It can be refactored with a fetch request to use with a real server.
-  postMessage = (message, userId, time) => {
+  postMessage = (message, picture, userId, time) => {
     let newLog = this.state.log;
-    
-    let newMessage = {text: message, userId: userId, time: time}
+
+    let newMessage = {text: message, userId: userId, time: time, picture: picture}
     
     let response = server.post(newMessage)
     newLog.push(response)
-    
+
     this.setState({log: newLog, messageId: this.state.messageId + 1, [`user${userId}Typing`]: false})
-    
+
     if(this.state[`user${userId}TypingTimeout`]){
       clearTimeout(this.state[`user${userId}TypingTimeout`])
     }
   }
-  
+
   indicateTyping = (user) => {
     if(!this.state[`user${user.id}Typing`]){
       this.setState({[`user${user.id}Typing`]: true})
@@ -43,10 +43,10 @@ class App extends Component {
     if(this.state[`user${user.id}TypingTimeout`]){
       clearTimeout(this.state[`user${user.id}TypingTimeout`])
     }
-    
+
     this.setState({[`user${user.id}TypingTimeout`]: setTimeout(() => { if (this.state[`user${user.id}Typing`]) {this.setState({[`user${user.id}Typing`]: false})}}, 1000)})
   }
-  
+
   render() {
     return (
       <React.Fragment>

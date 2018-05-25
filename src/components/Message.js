@@ -19,6 +19,7 @@ export const Message = (props) => {
               <span><Header as='h4' className='message-header' >{userName} </Header> <Header as='h5' disabled className='message-header'>
                <i>{props.message.time ? props.message.time.format("MMMM Do, h:mm A") : ""} </i></Header></span>
               <p className="wrapping-text" >{props.message.text}</p>
+              <img src={props.message.picture} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
