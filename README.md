@@ -10,8 +10,10 @@ This app was designed in React and styled with Semantic UI React.
 
 First, ensure you have the current version of npm and React installed.  After extracting the app from the .zip file or cloning the app from GitHub at https://github.com/Josh-Stillman/chat-app, run 'npm install && npm start' from the command line in the app's directory.
 
-### Chat App Git Log (as of 5/17/2018 8:21PM)
+### Chat App Git Log (updated as of 5/26/2018 12:30PM)
 
+68e1b57 change unnecessary let declarations to consts (Josh-Stillman, 46 seconds ago)
+0bbca75 fix dependencies; refactor search for user in Message component (Josh-Stillman, 4 minutes ago)
 c374db5 add readme (Josh-Stillman, 1 second ago)
 7194af9 revert divs in ChatWindow to semantic ui components (Josh-Stillman, 13 minutes ago)
 65846d5 complete refactoring and revert to prior autoscroll approach (Josh-Stillman, 20 minutes ago)
