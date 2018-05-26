@@ -5,8 +5,9 @@ import '../stylesheets/Message.css'
 
 export const Message = (props) => {
 
-  let userName = props.users.find((u) => u.id === props.message.userId).name
-  let userImage = props.users.find((u) => u.id === props.message.userId).image
+  const user = props.users.find((u) => u.id === props.message.userId)
+  const userName = user.name
+  const userImage = user.image
 
     return (
       <List.Item>
