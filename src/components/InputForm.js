@@ -25,10 +25,9 @@ class InputForm extends Component {
   handleChange = (e) => {
     e.persist()
 
-
     if(e.target.files){
       const reader = new FileReader();
-      const base64 = reader.readAsDataURL(e.target.files[0])
+      if(e.target.files[0]){const base64 = reader.readAsDataURL(e.target.files[0])}
 
       reader.addEventListener("load", () => {
         this.img.src = reader.result;
@@ -45,7 +44,7 @@ class InputForm extends Component {
   }
 
   handleSubmit = () => {
-    if(this.state.text !== ''){this.props.postMessage(this.state.text, this.state.picture, this.props.user.id, moment());}
+    if(this.state.text !== '' || this.state.picture !== ''){this.props.postMessage(this.state.text, this.state.picture, this.props.user.id, moment());}
     this.setState({text: ''});
   }
 
