@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import {Form, Input, Image} from 'semantic-ui-react'
-let moment = require('moment');
+import {Form, Input} from 'semantic-ui-react'
+const moment = require('moment');
 
 
 class InputForm extends Component {

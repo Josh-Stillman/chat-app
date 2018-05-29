@@ -22,11 +22,11 @@ class App extends Component {
   //The postMessage makes use of a mock-server for now.
   //It can be refactored with a fetch request to use with a real server.
   postMessage = (message, picture, userId, time) => {
-    let newLog = this.state.log;
+    const newLog = this.state.log;
 
-    let newMessage = {text: message, userId: userId, time: time, picture: picture}
-    
-    let response = server.post(newMessage)
+    const newMessage = {text: message, userId: userId, time: time, picture: picture}
+
+    const response = server.post(newMessage)
     newLog.push(response)
 
     this.setState({log: newLog, messageId: this.state.messageId + 1, [`user${userId}Typing`]: false})
